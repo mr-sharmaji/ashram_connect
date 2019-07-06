@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Settings</h1>
+</div>
+<ul>
+  <li><a href="{% url 'edit_profile' %}">Click Here</a> to edit your profile details.</li>
+  <li><a href="{% url 'change_password' %}">Click Here</a> to change your password.</li>
+</ul>
+{% endblock %}

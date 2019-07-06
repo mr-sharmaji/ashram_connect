@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="centerstage">
+  <div class="jumbotron">
+    <h2>Welcome {{ user.username }}!</h2>
+    <hr>
+    <p>Your Name: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Your Email Id: {{ user.email }}</p>
+  </div>
+
+  <div class="jumbotron">
+    <h1 class="text-center">Your Recent Activites </h1>
+    {% for post in post_list %}
+    <div class="card bg-dark text-white mb-3" href="{% url 'post_detail' pk=post.pk %}">
+    <div class="card-body">
+      <h1 class="card-title"> <a style="color:white" href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+      <p>Posted by: {{ post.author }} </p>
+      <p>Publish on: {{ post.published_date }} </p>
+      <p><a style="color:white" href="{% url 'post_detail' pk=post.pk %}"> Comments: 0{{ post.comments.count }}
+        </a></p>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+{% endblock %}
